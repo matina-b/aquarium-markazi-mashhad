@@ -1,178 +1,1187 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>آکواریوم مرکزی مشهد</title>
 
     <style>
+
+        /* =========================
+           تنظیمات کلی
+        ========================== */
+
         * {
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f5faf9;
-            color: #123447;
+            font-family: Tahoma, Arial, sans-serif;
+
+            background: #f8fbfc;
+
+            color: #26343d;
         }
+
+        :root {
+
+            --dark-blue: #0D2B45;
+
+            --ocean-blue: #146A8A;
+
+            --turquoise: #1FA7A1;
+
+            --green: #7CC576;
+
+            --white: #ffffff;
+
+            --light: #F1F4F6;
+
+            --text: #26343d;
+
+        }
+
+        /* =========================
+           HEADER
+        ========================== */
 
         header {
-            background: #0b2d43;
+
+            background: rgba(13, 43, 69, 0.97);
+
             color: white;
-            padding: 18px 6%;
+
+            padding: 14px 5%;
+
             display: flex;
+
             justify-content: space-between;
+
             align-items: center;
+
+            gap: 25px;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+
         }
 
-        .logo {
-            font-size: 20px;
+        .logo-area {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            white-space: nowrap;
+
+        }
+
+        .logo-area img {
+
+            width: 58px;
+
+            height: 58px;
+
+            object-fit: contain;
+
+            border-radius: 12px;
+
+            background: white;
+
+        }
+
+        .logo-text {
+
+            font-size: 18px;
+
             font-weight: bold;
+
+        }
+
+        nav {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 22px;
+
         }
 
         nav a {
+
             color: white;
+
             text-decoration: none;
-            margin-right: 20px;
+
+            font-size: 14px;
+
+            transition: 0.25s;
+
         }
 
-        .hero {
-            min-height: 500px;
+        nav a:hover {
+
+            color: #7CC576;
+
+        }
+
+        .header-tools {
+
             display: flex;
+
             align-items: center;
-            padding: 60px 8%;
+
+            gap: 10px;
+
+        }
+
+        .tool-btn {
+
+            border: none;
+
+            cursor: pointer;
+
+            background: rgba(255,255,255,0.10);
+
+            color: white;
+
+            padding: 10px 13px;
+
+            border-radius: 12px;
+
+            font-size: 16px;
+
+            transition: 0.25s;
+
+        }
+
+        .tool-btn:hover {
+
+            background: #1FA7A1;
+
+        }
+
+        .cart {
+
+            position: relative;
+
+        }
+
+        .cart-count {
+
+            position: absolute;
+
+            top: -7px;
+
+            left: -7px;
+
+            width: 20px;
+
+            height: 20px;
+
+            background: #7CC576;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 11px;
+
+            font-weight: bold;
+
+            color: #0D2B45;
+
+        }
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+
+            min-height: 650px;
+
+            display: flex;
+
+            align-items: center;
+
+            padding: 70px 8%;
+
             color: white;
 
             background:
-                linear-gradient(
-                    rgba(4, 35, 50, 0.65),
-                    rgba(4, 35, 50, 0.65)
-                ),
-                url("https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1800&q=80");
+
+            linear-gradient(
+                90deg,
+                rgba(4, 30, 48, 0.84),
+                rgba(4, 35, 50, 0.30)
+            ),
+
+            url("hero-aquarium.png");
 
             background-size: cover;
+
             background-position: center;
+
         }
 
         .hero-content {
-            max-width: 650px;
+
+            max-width: 720px;
+
+        }
+
+        .hero-small {
+
+            display: inline-block;
+
+            background: rgba(31,167,161,0.22);
+
+            border: 1px solid rgba(255,255,255,0.30);
+
+            backdrop-filter: blur(5px);
+
+            padding: 8px 16px;
+
+            border-radius: 30px;
+
+            font-size: 14px;
+
         }
 
         .hero h1 {
-            font-size: 48px;
-            line-height: 1.5;
-            margin: 10px 0;
+
+            font-size: 58px;
+
+            line-height: 1.45;
+
+            margin: 20px 0;
+
+            text-shadow: 0 5px 20px rgba(0,0,0,0.35);
+
         }
 
-        .hero p {
-            font-size: 17px;
+        .hero-description {
+
+            font-size: 18px;
+
             line-height: 2;
+
+            max-width: 600px;
+
+        }
+
+        .hero-buttons {
+
+            display: flex;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+
+            margin-top: 30px;
+
         }
 
         .button {
+
             display: inline-block;
-            margin-top: 20px;
-            padding: 13px 25px;
+
+            padding: 14px 27px;
+
             border-radius: 30px;
-            background: #25a79e;
+
+            background: #1FA7A1;
+
             color: white;
+
             text-decoration: none;
+
             font-weight: bold;
+
+            transition: 0.3s;
+
         }
 
+        .button:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow: 0 8px 25px rgba(0,0,0,0.20);
+
+        }
+
+        .button-secondary {
+
+            background: rgba(255,255,255,0.14);
+
+            border: 1px solid rgba(255,255,255,0.6);
+
+            backdrop-filter: blur(5px);
+
+        }
+
+        /* =========================
+           GENERAL SECTIONS
+        ========================== */
+
         .section {
+
             width: 90%;
-            max-width: 1100px;
+
+            max-width: 1200px;
+
             margin: auto;
-            padding: 70px 0;
+
+            padding: 80px 0;
+
         }
 
         .section-title {
+
             text-align: center;
-            margin-bottom: 40px;
+
+            margin-bottom: 45px;
+
+        }
+
+        .section-title span {
+
+            color: #1FA7A1;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
         }
 
         .section-title h2 {
-            font-size: 30px;
+
+            color: #0D2B45;
+
+            font-size: 32px;
+
+            margin: 10px 0;
+
         }
 
+        .section-title p {
+
+            color: #667680;
+
+            line-height: 2;
+
+        }
+
+        /* =========================
+           CATEGORIES
+        ========================== */
+
         .categories {
+
             display: grid;
+
             grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
+
+            gap: 18px;
+
         }
 
         .category {
+
             background: white;
+
             padding: 30px 15px;
+
             border-radius: 20px;
+
             text-align: center;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
-            font-size: 17px;
+
+            box-shadow: 0 8px 30px rgba(13,43,69,0.07);
+
+            border: 1px solid #edf3f4;
+
+            transition: 0.3s;
+
+            cursor: pointer;
+
+        }
+
+        .category:hover {
+
+            transform: translateY(-7px);
+
+            box-shadow: 0 12px 35px rgba(13,43,69,0.13);
+
+            border-color: #1FA7A1;
+
         }
 
         .category .emoji {
-            font-size: 40px;
+
             display: block;
-            margin-bottom: 15px;
+
+            font-size: 42px;
+
+            margin-bottom: 14px;
+
         }
 
-        footer {
-            background: #0b2d43;
+        .category strong {
+
+            color: #0D2B45;
+
+        }
+
+        /* =========================
+           PRODUCTS
+        ========================== */
+
+        .products {
+
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 22px;
+
+        }
+
+        .product {
+
+            background: white;
+
+            border-radius: 22px;
+
+            overflow: hidden;
+
+            box-shadow: 0 8px 30px rgba(13,43,69,0.08);
+
+            transition: 0.3s;
+
+            border: 1px solid #edf3f4;
+
+        }
+
+        .product:hover {
+
+            transform: translateY(-7px);
+
+            box-shadow: 0 15px 35px rgba(13,43,69,0.15);
+
+        }
+
+        .product-image {
+
+            height: 230px;
+
+            background: #eef5f6;
+
+            overflow: hidden;
+
+        }
+
+        .product-image img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: 0.4s;
+
+        }
+
+        .product:hover img {
+
+            transform: scale(1.06);
+
+        }
+
+        .product-info {
+
+            padding: 20px;
+
+        }
+
+        .product-category {
+
+            font-size: 12px;
+
+            color: #1FA7A1;
+
+        }
+
+        .product h3 {
+
+            color: #0D2B45;
+
+            font-size: 16px;
+
+            margin: 10px 0;
+
+        }
+
+        .stars {
+
+            color: #ffb703;
+
+            font-size: 14px;
+
+            margin: 8px 0;
+
+        }
+
+        .price {
+
+            color: #146A8A;
+
+            font-weight: bold;
+
+            font-size: 17px;
+
+            margin: 12px 0;
+
+        }
+
+        .add-cart {
+
+            width: 100%;
+
+            border: none;
+
+            background: #0D2B45;
+
             color: white;
+
+            border-radius: 12px;
+
+            padding: 12px;
+
+            cursor: pointer;
+
+            font-family: inherit;
+
+            transition: 0.25s;
+
+        }
+
+        .add-cart:hover {
+
+            background: #1FA7A1;
+
+        }
+
+        /* =========================
+           SMART GUIDE
+        ========================== */
+
+        .guide {
+
+            width: 90%;
+
+            max-width: 1200px;
+
+            margin: 40px auto 80px;
+
+            border-radius: 30px;
+
+            background:
+
+            linear-gradient(
+                135deg,
+                #0D2B45,
+                #146A8A
+            );
+
+            color: white;
+
+            padding: 55px;
+
             text-align: center;
-            padding: 40px 20px;
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+        .guide h2 {
+
+            font-size: 34px;
+
+            margin-top: 0;
+
+        }
+
+        .guide p {
+
+            line-height: 2;
+
+            color: #e3f5f4;
+
+        }
+
+        .liter-options {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+
+            margin-top: 25px;
+
+        }
+
+        .liter-options button {
+
+            background: rgba(255,255,255,0.12);
+
+            border: 1px solid rgba(255,255,255,0.4);
+
+            color: white;
+
+            padding: 13px 20px;
+
+            border-radius: 25px;
+
+            cursor: pointer;
+
+            font-family: inherit;
+
+            transition: 0.25s;
+
+        }
+
+        .liter-options button:hover {
+
+            background: #7CC576;
+
+            color: #0D2B45;
+
+        }
+
+        #guide-result {
+
+            margin-top: 25px;
+
+            font-weight: bold;
+
+            min-height: 25px;
+
+        }
+
+        /* =========================
+           TRUST
+        ========================== */
+
+        .trust-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 20px;
+
+        }
+
+        .trust-item {
+
+            text-align: center;
+
+            background: white;
+
+            padding: 30px 15px;
+
+            border-radius: 18px;
+
+            box-shadow: 0 7px 25px rgba(13,43,69,0.06);
+
+        }
+
+        .trust-icon {
+
+            font-size: 35px;
+
+            margin-bottom: 10px;
+
+        }
+
+        .trust-item strong {
+
+            color: #0D2B45;
+
+            display: block;
+
+            margin-bottom: 8px;
+
+        }
+
+        .trust-item p {
+
+            color: #6d7b84;
+
+            font-size: 13px;
+
+            line-height: 1.8;
+
+        }
+
+        /* =========================
+           ABOUT
+        ========================== */
+
+        .about-box {
+
+            background: white;
+
+            border-radius: 25px;
+
+            padding: 45px;
+
+            text-align: center;
+
+            box-shadow: 0 8px 30px rgba(13,43,69,0.06);
+
+        }
+
+        .about-box h2 {
+
+            color: #0D2B45;
+
+        }
+
+        .about-box p {
+
+            color: #64747d;
+
+            line-height: 2.2;
+
+            max-width: 800px;
+
+            margin: auto;
+
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+
+            background: #0D2B45;
+
+            color: white;
+
+            padding: 60px 7% 25px;
+
+        }
+
+        .footer-grid {
+
+            display: grid;
+
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+
+            gap: 35px;
+
+            max-width: 1200px;
+
+            margin: auto;
+
+        }
+
+        footer h3 {
+
+            margin-top: 0;
+
+        }
+
+        footer p {
+
+            color: #c6d4dc;
+
+            line-height: 2;
+
+            font-size: 14px;
+
+        }
+
+        footer a {
+
+            display: block;
+
+            color: #c6d4dc;
+
+            text-decoration: none;
+
+            margin: 12px 0;
+
+            font-size: 14px;
+
+        }
+
+        footer a:hover {
+
+            color: #7CC576;
+
+        }
+
+        .copyright {
+
+            border-top: 1px solid rgba(255,255,255,0.12);
+
+            margin-top: 40px;
+
+            padding-top: 22px;
+
+            text-align: center;
+
+            color: #9db0bc;
+
+            font-size: 13px;
+
+        }
+
+        /* =========================
+           SEARCH
+        ========================== */
+
+        .search-box {
+
+            position: fixed;
+
+            top: 0;
+
+            right: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            background: rgba(13,43,69,0.92);
+
+            z-index: 3000;
+
+            display: none;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 20px;
+
+        }
+
+        .search-content {
+
+            width: 100%;
+
+            max-width: 650px;
+
+            position: relative;
+
+        }
+
+        .search-content input {
+
+            width: 100%;
+
+            border: none;
+
+            outline: none;
+
+            padding: 20px;
+
+            border-radius: 18px;
+
+            font-family: inherit;
+
+            font-size: 17px;
+
+        }
+
+        .close-search {
+
+            position: absolute;
+
+            top: -55px;
+
+            left: 0;
+
+            background: none;
+
+            border: none;
+
+            color: white;
+
+            font-size: 30px;
+
+            cursor: pointer;
+
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================== */
+
+        @media (max-width: 1000px) {
+
+            header {
+
+                flex-wrap: wrap;
+
+            }
+
+            nav {
+
+                order: 3;
+
+                width: 100%;
+
+                justify-content: center;
+
+                flex-wrap: wrap;
+
+            }
+
+            .categories,
+            .products,
+            .trust-grid {
+
+                grid-template-columns: repeat(2, 1fr);
+
+            }
+
+            .footer-grid {
+
+                grid-template-columns: repeat(2, 1fr);
+
+            }
+
         }
 
         @media (max-width: 700px) {
 
             header {
-                flex-direction: column;
-                gap: 15px;
+
+                padding: 12px 4%;
+
             }
 
-            .hero h1 {
-                font-size: 32px;
+            .logo-area img {
+
+                width: 45px;
+
+                height: 45px;
+
             }
 
-            .categories {
-                grid-template-columns: repeat(2, 1fr);
+            .logo-text {
+
+                font-size: 14px;
+
+            }
+
+            nav {
+
+                gap: 10px;
+
             }
 
             nav a {
-                margin-right: 8px;
-                font-size: 13px;
+
+                font-size: 12px;
+
             }
+
+            .hero {
+
+                min-height: 570px;
+
+                padding: 45px 6%;
+
+                background-position: 65% center;
+
+            }
+
+            .hero h1 {
+
+                font-size: 38px;
+
+            }
+
+            .hero-description {
+
+                font-size: 15px;
+
+            }
+
+            .section {
+
+                width: 92%;
+
+                padding: 60px 0;
+
+            }
+
+            .section-title h2 {
+
+                font-size: 27px;
+
+            }
+
+            .categories,
+            .products,
+            .trust-grid {
+
+                grid-template-columns: repeat(2, 1fr);
+
+                gap: 12px;
+
+            }
+
+            .product-image {
+
+                height: 170px;
+
+            }
+
+            .product-info {
+
+                padding: 14px;
+
+            }
+
+            .guide {
+
+                padding: 40px 20px;
+
+                width: 92%;
+
+            }
+
+            .guide h2 {
+
+                font-size: 27px;
+
+            }
+
+            .footer-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
         }
+
+        @media (max-width: 450px) {
+
+            .categories,
+            .products {
+
+                grid-template-columns: 1fr;
+
+            }
+
+        }
+
     </style>
+
 </head>
 
 <body>
 
+<!-- =========================
+     HEADER
+========================== -->
+
 <header>
 
-    <div class="logo">
-        🐠 آکواریوم مرکزی مشهد
+    <div class="logo-area">
+
+        <img src="logo.png" alt="لوگوی آکواریوم مرکزی مشهد">
+
+        <span class="logo-text">
+            آکواریوم مرکزی مشهد
+        </span>
+
     </div>
 
     <nav>
-        <a href="#">خانه</a>
+
+        <a href="#home">خانه</a>
+
         <a href="#shop">فروشگاه</a>
+
         <a href="#categories">دسته‌بندی‌ها</a>
+
         <a href="#about">درباره ما</a>
+
         <a href="#contact">تماس با ما</a>
+
     </nav>
+
+    <div class="header-tools">
+
+        <button class="tool-btn" onclick="openSearch()">
+            🔍
+        </button>
+
+        <button class="tool-btn">
+            👤
+        </button>
+
+        <button class="tool-btn cart" onclick="showCart()">
+
+            🛒
+
+            <span class="cart-count" id="cart-count">
+                0
+            </span>
+
+        </button>
+
+    </div>
 
 </header>
 
+<!-- =========================
+     HERO
+========================== -->
 
-<section class="hero">
+<section id="home" class="hero">
 
     <div class="hero-content">
 
-        <p>تجهیزات تخصصی آکواریوم</p>
+        <span class="hero-small">
+            🌊 تجهیزات تخصصی آکواریوم
+        </span>
 
         <h1>
             دنیای زیر آب،
@@ -180,134 +1189,840 @@
             با انتخاب درست زیباتر می‌شود.
         </h1>
 
-        <p>
-            تجهیزات مورد نیاز آکواریوم برای مبتدی‌ها و حرفه‌ای‌ها،
-            با انتخابی ساده و مطمئن.
+        <p class="hero-description">
+
+            تجهیزات تخصصی آکواریوم برای مبتدی‌ها و حرفه‌ای‌ها،
+            با انتخابی ساده، مطمئن و حرفه‌ای.
+
         </p>
 
-        <a class="button" href="#shop">
-            مشاهده فروشگاه
-        </a>
+        <div class="hero-buttons">
+
+            <a class="button" href="#shop">
+                مشاهده فروشگاه
+            </a>
+
+            <a class="button button-secondary" href="#guide">
+                راهنمای انتخاب تجهیزات
+            </a>
+
+        </div>
 
     </div>
 
 </section>
 
+<!-- =========================
+     CATEGORIES
+========================== -->
 
 <section id="categories" class="section">
 
     <div class="section-title">
 
-        <p>انتخاب سریع</p>
+        <span>
+            انتخاب سریع
+        </span>
 
         <h2>
             دسته‌بندی محصولات
         </h2>
 
-    </div>
+        <p>
+            تجهیزات مورد نیاز آکواریوم خود را سریع‌تر پیدا کنید.
+        </p>
 
+    </div>
 
     <div class="categories">
 
         <div class="category">
-            <span class="emoji">🌊</span>
-            فیلتر و تصفیه
+
+            <span class="emoji">
+                🌊
+            </span>
+
+            <strong>
+                فیلتر و تصفیه
+            </strong>
+
         </div>
 
         <div class="category">
-            <span class="emoji">💨</span>
-            پمپ و هوادهی
+
+            <span class="emoji">
+                💨
+            </span>
+
+            <strong>
+                پمپ و هوادهی
+            </strong>
+
         </div>
 
         <div class="category">
-            <span class="emoji">💡</span>
-            نور و روشنایی
+
+            <span class="emoji">
+                💡
+            </span>
+
+            <strong>
+                نور و روشنایی
+            </strong>
+
         </div>
 
         <div class="category">
-            <span class="emoji">🌡️</span>
-            بخاری و تجهیزات حرارتی
+
+            <span class="emoji">
+                🌡️
+            </span>
+
+            <strong>
+                بخاری و تجهیزات حرارتی
+            </strong>
+
         </div>
 
         <div class="category">
-            <span class="emoji">🌿</span>
-            دکور و گیاه
+
+            <span class="emoji">
+                🌿
+            </span>
+
+            <strong>
+                دکور و گیاه
+            </strong>
+
         </div>
 
         <div class="category">
-            <span class="emoji">🐟</span>
-            غذای ماهی
+
+            <span class="emoji">
+                🍽️
+            </span>
+
+            <strong>
+                غذای ماهی
+            </strong>
+
         </div>
 
         <div class="category">
-            <span class="emoji">🧪</span>
-            تست آب
+
+            <span class="emoji">
+                🧪
+            </span>
+
+            <strong>
+                تست آب و مواد نگهداری
+            </strong>
+
         </div>
 
         <div class="category">
-            <span class="emoji">🔧</span>
-            لوازم جانبی
+
+            <span class="emoji">
+                🔧
+            </span>
+
+            <strong>
+                لوازم جانبی
+            </strong>
+
         </div>
 
     </div>
 
 </section>
 
+<!-- =========================
+     BEST SELLERS
+========================== -->
 
 <section id="shop" class="section">
 
     <div class="section-title">
 
-        <p>به‌زودی</p>
+        <span>
+            ⭐ انتخاب مشتریان
+        </span>
 
         <h2>
-            فروشگاه آکواریوم مرکزی مشهد
+            محصولات پرفروش
         </h2>
 
         <p>
-            محصولات و قیمت‌ها در مرحله بعد اضافه می‌شوند.
+            چند نمونه محصول برای نمایش اولیه فروشگاه
         </p>
+
+    </div>
+
+    <div class="products">
+
+        <div class="product">
+
+            <div class="product-image">
+
+                <img
+                src="https://images.unsplash.com/photo-1520301255226-bf5f144451a1?auto=format&fit=crop&w=800&q=80"
+                alt="محصول آکواریوم">
+
+            </div>
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    فیلتر و تصفیه
+                </span>
+
+                <h3>
+                    فیلتر آکواریوم
+                </h3>
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <div class="price">
+                    ۱,۲۵۰,۰۰۰ تومان
+                </div>
+
+                <button class="add-cart" onclick="addToCart()">
+                    افزودن به سبد 🛒
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="product">
+
+            <div class="product-image">
+
+                <img
+                src="https://images.unsplash.com/photo-1535591273668-578e31182c4f?auto=format&fit=crop&w=800&q=80"
+                alt="محصول آکواریوم">
+
+            </div>
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    هوادهی
+                </span>
+
+                <h3>
+                    پمپ هوای آکواریوم
+                </h3>
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <div class="price">
+                    ۷۸۰,۰۰۰ تومان
+                </div>
+
+                <button class="add-cart" onclick="addToCart()">
+                    افزودن به سبد 🛒
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="product">
+
+            <div class="product-image">
+
+                <img
+                src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80"
+                alt="محصول آکواریوم">
+
+            </div>
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    روشنایی
+                </span>
+
+                <h3>
+                    چراغ LED آکواریوم
+                </h3>
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <div class="price">
+                    ۹۵۰,۰۰۰ تومان
+                </div>
+
+                <button class="add-cart" onclick="addToCart()">
+                    افزودن به سبد 🛒
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="product">
+
+            <div class="product-image">
+
+                <img
+                src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=800&q=80"
+                alt="محصول آکواریوم">
+
+            </div>
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    دکور و گیاه
+                </span>
+
+                <h3>
+                    گیاه طبیعی آکواریومی
+                </h3>
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <div class="price">
+                    ۳۹۰,۰۰۰ تومان
+                </div>
+
+                <button class="add-cart" onclick="addToCart()">
+                    افزودن به سبد 🛒
+                </button>
+
+            </div>
+
+        </div>
 
     </div>
 
 </section>
 
+<!-- =========================
+     NEW PRODUCTS
+========================== -->
 
-<section id="about" class="section">
+<section class="section">
 
     <div class="section-title">
 
-        <p>درباره ما</p>
+        <span>
+            🆕 تازه رسیده‌ها
+        </span>
 
         <h2>
-            آرامش طبیعت، در خانه شما
+            جدیدترین محصولات
         </h2>
 
         <p>
-            هدف ما این است که انتخاب تجهیزات آکواریوم
-            ساده، مطمئن و لذت‌بخش باشد.
+            جدیدترین تجهیزات اضافه‌شده به فروشگاه
+        </p>
+
+    </div>
+
+    <div class="products">
+
+        <div class="product">
+
+            <div class="product-image">
+
+                <img
+                src="https://images.unsplash.com/photo-1578507065211-1c4e99a5fd24?auto=format&fit=crop&w=800&q=80"
+                alt="محصول">
+
+            </div>
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    لوازم جانبی
+                </span>
+
+                <h3>
+                    ابزار نگهداری آکواریوم
+                </h3>
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <div class="price">
+                    ۴۹۰,۰۰۰ تومان
+                </div>
+
+                <button class="add-cart" onclick="addToCart()">
+                    افزودن به سبد 🛒
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="product">
+
+            <div class="product-image">
+
+                <img
+                src="https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?auto=format&fit=crop&w=800&q=80"
+                alt="محصول">
+
+            </div>
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    دکور
+                </span>
+
+                <h3>
+                    دکور آکواریوم طبیعی
+                </h3>
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <div class="price">
+                    ۶۵۰,۰۰۰ تومان
+                </div>
+
+                <button class="add-cart" onclick="addToCart()">
+                    افزودن به سبد 🛒
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="product">
+
+            <div class="product-image">
+
+                <img
+                src="https://images.unsplash.com/photo-1524704796725-9fc3044a58b2?auto=format&fit=crop&w=800&q=80"
+                alt="محصول">
+
+            </div>
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    غذا
+                </span>
+
+                <h3>
+                    غذای تخصصی ماهی
+                </h3>
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <div class="price">
+                    ۳۲۰,۰۰۰ تومان
+                </div>
+
+                <button class="add-cart" onclick="addToCart()">
+                    افزودن به سبد 🛒
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="product">
+
+            <div class="product-image">
+
+                <img
+                src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80"
+                alt="محصول">
+
+            </div>
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    تست آب
+                </span>
+
+                <h3>
+                    کیت تست کیفیت آب
+                </h3>
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <div class="price">
+                    ۸۹۰,۰۰۰ تومان
+                </div>
+
+                <button class="add-cart" onclick="addToCart()">
+                    افزودن به سبد 🛒
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     SMART GUIDE
+========================== -->
+
+<section id="guide" class="guide">
+
+    <h2>
+        🧠🐟 نمی‌دونی چی لازم داری؟
+    </h2>
+
+    <p>
+
+        اندازه آکواریومت رو انتخاب کن تا در آینده
+        تجهیزات مناسب برای آکواریومت رو بهت پیشنهاد بدیم.
+
+    </p>
+
+    <div class="liter-options">
+
+        <button onclick="selectTank('تا ۶۰ لیتر')">
+            تا ۶۰ لیتر
+        </button>
+
+        <button onclick="selectTank('۶۰ تا ۱۲۰ لیتر')">
+            ۶۰ تا ۱۲۰ لیتر
+        </button>
+
+        <button onclick="selectTank('۱۲۰ تا ۳۰۰ لیتر')">
+            ۱۲۰ تا ۳۰۰ لیتر
+        </button>
+
+        <button onclick="selectTank('بیشتر از ۳۰۰ لیتر')">
+            ۳۰۰ لیتر به بالا
+        </button>
+
+    </div>
+
+    <div id="guide-result"></div>
+
+</section>
+
+<!-- =========================
+     TRUST
+========================== -->
+
+<section class="section">
+
+    <div class="section-title">
+
+        <span>
+            🤍 خرید مطمئن
+        </span>
+
+        <h2>
+            چرا آکواریوم مرکزی مشهد؟
+        </h2>
+
+    </div>
+
+    <div class="trust-grid">
+
+        <div class="trust-item">
+
+            <div class="trust-icon">
+                🐠
+            </div>
+
+            <strong>
+                محصولات تخصصی
+            </strong>
+
+            <p>
+                تجهیزات تخصصی مناسب انواع آکواریوم
+            </p>
+
+        </div>
+
+        <div class="trust-item">
+
+            <div class="trust-icon">
+                🚚
+            </div>
+
+            <strong>
+                ارسال به سراسر ایران
+            </strong>
+
+            <p>
+                ارسال محصولات به شهرهای مختلف کشور
+            </p>
+
+        </div>
+
+        <div class="trust-item">
+
+            <div class="trust-icon">
+                💬
+            </div>
+
+            <strong>
+                پشتیبانی و مشاوره
+            </strong>
+
+            <p>
+                راهنمایی برای انتخاب تجهیزات مناسب
+            </p>
+
+        </div>
+
+        <div class="trust-item">
+
+            <div class="trust-icon">
+                ✅
+            </div>
+
+            <strong>
+                انتخاب مطمئن
+            </strong>
+
+            <p>
+                تلاش برای ارائه محصولات باکیفیت و تخصصی
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     ABOUT
+========================== -->
+
+<section id="about" class="section">
+
+    <div class="about-box">
+
+        <h2>
+            🌿 آرامش طبیعت، در خانه شما
+        </h2>
+
+        <p>
+
+            در آکواریوم مرکزی مشهد تلاش می‌کنیم انتخاب تجهیزات
+            آکواریوم برای علاقه‌مندان مبتدی و حرفه‌ای ساده،
+            مطمئن و لذت‌بخش باشد.
+
+            هدف ما ارائه محصولات تخصصی،
+            راهنمایی مناسب و تجربه خریدی آسان برای دوستداران
+            دنیای زیبای آبزیان است.
+
         </p>
 
     </div>
 
 </section>
 
+<!-- =========================
+     FOOTER
+========================== -->
 
 <footer id="contact">
 
-    <h3>
-        🐠 آکواریوم مرکزی مشهد
-    </h3>
+    <div class="footer-grid">
 
-    <p>
-        تجهیزات تخصصی آکواریوم
-    </p>
+        <div>
 
-    <p>
-        ارسال به سراسر ایران
-    </p>
+            <h3>
+                🐠 آکواریوم مرکزی مشهد
+            </h3>
+
+            <p>
+                تجهیزات تخصصی آکواریوم برای علاقه‌مندان
+                دنیای زیبای آبزیان.
+            </p>
+
+        </div>
+
+        <div>
+
+            <h3>
+                دسترسی سریع
+            </h3>
+
+            <a href="#home">
+                خانه
+            </a>
+
+            <a href="#shop">
+                فروشگاه
+            </a>
+
+            <a href="#categories">
+                دسته‌بندی‌ها
+            </a>
+
+            <a href="#about">
+                درباره ما
+            </a>
+
+        </div>
+
+        <div>
+
+            <h3>
+                خدمات مشتریان
+            </h3>
+
+            <a href="#">
+                قوانین خرید
+            </a>
+
+            <a href="#">
+                روش‌های ارسال
+            </a>
+
+            <a href="#">
+                پیگیری سفارش
+            </a>
+
+            <a href="#">
+                سوالات متداول
+            </a>
+
+        </div>
+
+        <div>
+
+            <h3>
+                تماس با ما
+            </h3>
+
+            <p>
+                📍 مشهد
+            </p>
+
+            <p>
+                📞 شماره تماس: به‌زودی
+            </p>
+
+            <p>
+                📱 اینستاگرام: به‌زودی
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="copyright">
+
+        © 2026 آکواریوم مرکزی مشهد — تمامی حقوق محفوظ است.
+
+    </div>
 
 </footer>
 
+<!-- =========================
+     SEARCH OVERLAY
+========================== -->
+
+<div class="search-box" id="search-box">
+
+    <div class="search-content">
+
+        <button
+        class="close-search"
+        onclick="closeSearch()">
+
+            ✕
+
+        </button>
+
+        <input
+        type="text"
+        placeholder="نام محصول، برند یا دسته‌بندی را جستجو کنید...">
+
+    </div>
+
+</div>
+
+<!-- =========================
+     JAVASCRIPT
+========================== -->
+
+<script>
+
+    let cartCount = 0;
+
+    function addToCart() {
+
+        cartCount++;
+
+        document.getElementById("cart-count").innerText = cartCount;
+
+        alert("محصول به سبد خرید اضافه شد 🛒🐠");
+
+    }
+
+    function showCart() {
+
+        if (cartCount === 0) {
+
+            alert("سبد خرید شما هنوز خالی است 🐠");
+
+        }
+
+        else {
+
+            alert(
+                "در حال حاضر " +
+                cartCount +
+                " محصول در سبد خرید دارید 🛒"
+            );
+
+        }
+
+    }
+
+    function openSearch() {
+
+        document.getElementById("search-box").style.display = "flex";
+
+    }
+
+    function closeSearch() {
+
+        document.getElementById("search-box").style.display = "none";
+
+    }
+
+    function selectTank(size) {
+
+        document.getElementById("guide-result").innerHTML =
+
+        "🐟 انتخاب شما: " +
+        size +
+        "<br><br>" +
+        "در مرحله بعد، محصولات مناسب این حجم آکواریوم را به شما پیشنهاد خواهیم داد.";
+
+    }
+
+</script>
+
 </body>
+
 </html>
