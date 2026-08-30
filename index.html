@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>آکواریوم مرکزی مشهد</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5faf9;
+            color: #123447;
+        }
+
+        header {
+            background: #0b2d43;
+            color: white;
+            padding: 18px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+
+        .hero {
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            padding: 60px 8%;
+            color: white;
+
+            background:
+                linear-gradient(
+                    rgba(4, 35, 50, 0.65),
+                    rgba(4, 35, 50, 0.65)
+                ),
+                url("https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1800&q=80");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            line-height: 1.5;
+            margin: 10px 0;
+        }
+
+        .hero p {
+            font-size: 17px;
+            line-height: 2;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 13px 25px;
+            border-radius: 30px;
+            background: #25a79e;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .section {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            padding: 70px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 30px;
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .category {
+            background: white;
+            padding: 30px 15px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            font-size: 17px;
+        }
+
+        .category .emoji {
+            font-size: 40px;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background: #0b2d43;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        @media (max-width: 700px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .categories {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            nav a {
+                margin-right: 8px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        🐠 آکواریوم مرکزی مشهد
+    </div>
+
+    <nav>
+        <a href="#">خانه</a>
+        <a href="#shop">فروشگاه</a>
+        <a href="#categories">دسته‌بندی‌ها</a>
+        <a href="#about">درباره ما</a>
+        <a href="#contact">تماس با ما</a>
+    </nav>
+
+</header>
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <p>تجهیزات تخصصی آکواریوم</p>
+
+        <h1>
+            دنیای زیر آب،
+            <br>
+            با انتخاب درست زیباتر می‌شود.
+        </h1>
+
+        <p>
+            تجهیزات مورد نیاز آکواریوم برای مبتدی‌ها و حرفه‌ای‌ها،
+            با انتخابی ساده و مطمئن.
+        </p>
+
+        <a class="button" href="#shop">
+            مشاهده فروشگاه
+        </a>
+
+    </div>
+
+</section>
+
+
+<section id="categories" class="section">
+
+    <div class="section-title">
+
+        <p>انتخاب سریع</p>
+
+        <h2>
+            دسته‌بندی محصولات
+        </h2>
+
+    </div>
+
+
+    <div class="categories">
+
+        <div class="category">
+            <span class="emoji">🌊</span>
+            فیلتر و تصفیه
+        </div>
+
+        <div class="category">
+            <span class="emoji">💨</span>
+            پمپ و هوادهی
+        </div>
+
+        <div class="category">
+            <span class="emoji">💡</span>
+            نور و روشنایی
+        </div>
+
+        <div class="category">
+            <span class="emoji">🌡️</span>
+            بخاری و تجهیزات حرارتی
+        </div>
+
+        <div class="category">
+            <span class="emoji">🌿</span>
+            دکور و گیاه
+        </div>
+
+        <div class="category">
+            <span class="emoji">🐟</span>
+            غذای ماهی
+        </div>
+
+        <div class="category">
+            <span class="emoji">🧪</span>
+            تست آب
+        </div>
+
+        <div class="category">
+            <span class="emoji">🔧</span>
+            لوازم جانبی
+        </div>
+
+    </div>
+
+</section>
+
+
+<section id="shop" class="section">
+
+    <div class="section-title">
+
+        <p>به‌زودی</p>
+
+        <h2>
+            فروشگاه آکواریوم مرکزی مشهد
+        </h2>
+
+        <p>
+            محصولات و قیمت‌ها در مرحله بعد اضافه می‌شوند.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section id="about" class="section">
+
+    <div class="section-title">
+
+        <p>درباره ما</p>
+
+        <h2>
+            آرامش طبیعت، در خانه شما
+        </h2>
+
+        <p>
+            هدف ما این است که انتخاب تجهیزات آکواریوم
+            ساده، مطمئن و لذت‌بخش باشد.
+        </p>
+
+    </div>
+
+</section>
+
+
+<footer id="contact">
+
+    <h3>
+        🐠 آکواریوم مرکزی مشهد
+    </h3>
+
+    <p>
+        تجهیزات تخصصی آکواریوم
+    </p>
+
+    <p>
+        ارسال به سراسر ایران
+    </p>
+
+</footer>
+
+</body>
+</html>
